@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TextView convertedTime;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {// Application Starts
 
         super.onCreate(savedInstanceState);
         final String[] timezones = new String[] {"America/Cayenne", "Asia/Tokyo", "Europe/Paris"};
