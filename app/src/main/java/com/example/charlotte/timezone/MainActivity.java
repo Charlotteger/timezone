@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             convertedTime.setText(time);
             DateFormat parser = DateFormat.getDateInstance();
             parser.setTimeZone(selectedTimeZone);
-            convertedTime.setText(parser.format(toDate.getTime()));
+            convertedTime.setText(parser.format(toDate.getTime()) + " " + time);
         }
     }
 
