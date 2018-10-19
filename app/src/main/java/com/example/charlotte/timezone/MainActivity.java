@@ -1,5 +1,8 @@
 package com.example.charlotte.timezone;
 
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,17 +31,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {// Application Starts
 
         super.onCreate(savedInstanceState);
-        final String[] timezones = new String[] {"America/Cayenne", "Asia/Tokyo", "Europe/Paris"};
+        //final String[] timezones = new String[] {"America/Cayenne", "Asia/Tokyo", "Europe/Paris"};
+        TimezoneViewModel model = ViewModelProviders.of(this).get(TimezoneViewModel.class);
+        ActivityMainBinding binding = D
         localDate = Calendar.getInstance();
-        timeZoneButton = findViewById(R.id.timeZoneButton);
-        setContentView(R.layout.activity_main);
-        SeekBar seekBar = findViewById(R.id.seekBar);
-        final TextView userTime = findViewById(R.id.userTime);
-        convertedTime = findViewById(R.id.convertedTime);
-        seekBar.setProgress(localDate.get(Calendar.HOUR_OF_DAY));
-        dateBtn = findViewById(R.id.dateButton);
-        dateBtn.setText(DateFormat.getDateInstance().format(localDate.getTime()));
-        userTime.setText((seekBar.getProgress() < 10 ? "0" + Integer.toString(seekBar.getProgress()) : Integer.toString(seekBar.getProgress())) + ":00");
+        //timeZoneButton = findViewById(R.id.timeZoneButton);
+        //setContentView(R.layout.activity_main);
+        //SeekBar seekBar = findViewById(R.id.seekBar);
+        //final TextView userTime = findViewById(R.id.userTime);
+        //convertedTime = findViewById(R.id.convertedTime);
+        //seekBar.setProgress(localDate.get(Calendar.HOUR_OF_DAY));
+        //dateBtn = findViewById(R.id.dateButton);
+        //dateBtn.setText(DateFormat.getDateInstance().format(localDate.getTime()));
+        //userTime.setText((seekBar.getProgress() < 10 ? "0" + Integer.toString(seekBar.getProgress()) : Integer.toString(seekBar.getProgress())) + ":00");
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
