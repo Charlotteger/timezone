@@ -13,8 +13,9 @@ import java.util.TimeZone;
 public class TimezoneViewModel extends ViewModel {
 
     private String[] timezones = new String[] {"America/Cayenne", "Asia/Tokyo", "Europe/Paris"};;
-    private int currentTimezone = 0;
-    MutableLiveData<Calendar> localDate;
+
+
+
     MutableLiveData<Calendar> convertedDate;
     MutableLiveData<String[]> timezoneList;
 
@@ -39,7 +40,7 @@ public class TimezoneViewModel extends ViewModel {
         return timezoneList;
     }
 
-    private void convertDate(){
+    public void convertDate(){
         Calendar toDate = Calendar.getInstance(TimeZone.getTimeZone(timezones[currentTimezone]));
         toDate.setTime(localDate.getValue().getTime());
         convertedDate.setValue(toDate);
@@ -55,6 +56,37 @@ public class TimezoneViewModel extends ViewModel {
         DateFormat parser = DateFormat.getDateInstance();
         parser.setTimeZone(date.getTimeZone());
         return parser.format(date.getTime());
+    }
+
+    public String[] getTimezones() {
+        return timezones;
+    }
+
+    public int getCurrentTimezone() {
+        return currentTimezone;
+    }
+
+    private int currentTimezone = 0;
+    MutableLiveData<Calendar> localDate;
+
+    public void setTimezones(String[] timezones) {
+        this.timezones = timezones;
+    }
+
+    public void setCurrentTimezone(int currentTimezone) {
+        this.currentTimezone = currentTimezone;
+    }
+
+    public void setLocalDate(MutableLiveData<Calendar> localDate) {
+        this.localDate = localDate;
+    }
+
+    public void setConvertedDate(MutableLiveData<Calendar> convertedDate) {
+        this.convertedDate = convertedDate;
+    }
+
+    public void setTimezoneList(MutableLiveData<String[]> timezoneList) {
+        this.timezoneList = timezoneList;
     }
 }
 
